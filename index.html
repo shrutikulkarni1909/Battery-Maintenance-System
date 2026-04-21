@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pulse Marketing &amp; Services – Battery Maintenance</title>
+  <link rel="stylesheet" href="src/styles/main.css" />
+  <link rel="stylesheet" href="src/styles/components.css" />
+  <link rel="stylesheet" href="src/styles/modals.css" />
+</head>
+<body>
+  <div id="app" class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAsICBUSExcVFRYYFhcZGx4eGxobHRogHiAjKSAjKCggICAoJjUwKCg3MCIfL0UuNTs6PD4+JzZJSUI6SDQ7PDkBDA0NBQUFFQYGFTkiGyI5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5OTk5Of/AABEIAGoBUAMBEQACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABgMEBQcIAQL/xABEEAABAwIDAwgGBgkDBQAAAAABAAIDBBEFEiEGMVEHEzNBcXKRsRQiMjVSYRYXVHOSwhUjNFOCoaKywTaB8CQlQmJj/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/ANuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIMFtNtZBhseeU3cfZYN5QaureWeqc481Exreq+pQW31xV3wx+CB9cVd8MfggfXFXfDH4IH1xV3wx+CB9cVd8Mfgg8+uKu+GPwQZXCOWeTMBUxNLfibvCDa+F4pFVxNlhcHNd/zVBeICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIPmR+UE8BdBzPtljb62tle4ktDi1o4AIMAgICAgICAgINkckOPOiqjTE+pINBwKDeKAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICC3ruif3T5IOVazpZO+7zKCggICAgICAgIJVyb+9KfvIOj0BAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEFCu6J/dPkg5TrOlk77vMoEFK+T2GOd2AlBW/RM/7qT8JQP0TP+6k/CUHj8LnAuYngd0oLQhAQEBBKuTf3pT95B0eg1Ftzyj1MdU6lpbMynKXdZKDGYptDjGFOifNKHtkGYDeOxBldo+UmobS008FmGS4eCL6hBl8P2uqX4JLWFw55t7G2iDE7G7e1lWajnXA83E5zdOsBBT2G5QKysrmQyuaWG97BBtavqhDE+Q65Gk+CDStLtnieK1fM08giBuQOA+ZQfdJt7iFBW+j1TxI1rg1w/yCgym3PKDV0lXzcDmhhY1wuOKBSYztDMxsjIwWOFwdNyDaGGOkMEZmFpMozD5oLtAQEBAQEBAQEBAQEBAQEBAQEFCu6J/dPkg5Ykiz1Bb8UhH9SDpTZzZ+Ckp42MY2+UEmwuTZBlvR2fC3wCB6Oz4W+AQeOpWEWLGkdgQaK5V8AipKpj4gGtlBJaN10EAQEBBKuTf3pT95B0eg5u2v97zfej/CCV8rrwYqMXF8u7+EIIrjTSMMor/E9BLsI/0xP/F5hBgOTffV/cP8kFLku95x/wC6DfmJUvPQyR7s7SPEIOeKN82CYgHSMPqOt3m/JBPxsfSY1Ka2KoN3EEs0uDwKCHcqUXN4gG78sbB4BBMcB5U6WCmhhdHKXMaASBog2XRVQmjZIAQHgEXQV0BAQEBAQEBAQEBAQEBAQEBAQUK7on90+SDl2H9rH3v5kHUlL0bO6PJBVQEBBpvls6Wn7Cg1UgICCVcm/vSn7yDo9BzXto0nFZwDYmTf4IJ/Q8k7pzHJVVTpG2By/Lggx3K/RMgjpYoxlY0EAIKmEf6Yn/i8wgwHJvvq/uH+SClyXe84/wDdBvrFa70eCSW2bI0m3FBq+DaeDaCUUktNkJBLZL6goIbSVE+DYkY2PPqvAI6nC6C85UpM+IB3GNh8UG29lsFp3UNO50LCSwXJaEElYwNAAFgNwQfSAgICAgICAgICAgICAgICAgIKFd0T+6fJBy7D+1j738yDqSl6NndHkgqoCAg03y2dLT9hQaqQEBBKuTf3pT95B0eg0xtDyeVs+ISTsYCx0gIN+pBuKlYWxsad4aAfBBEOUTY1+JRNMRAkj1AO4/JBAIsExmKkfQCD9U86nTzQSbY3k+mo4Kh0pHOyxlrWjquOtBFcM5PsWpJRLC1rXjcbhBMcGw3GJZDHWuBgc0h27rCCKR7E4lhdXz1NGJQCcp+XzQe0mweIV9b6RUsEQLg5xPkEGT272Bq6ur5yBoLAxrQSeCD2jwvaGFjY2OAY0WA03INo4YJBBGJtZMozdqC7QEBAQEBAQEBAQEBAQEBAQEBBQruif3T5IOXYf2sfe/mQdSUvRs7o8kFVAQEGmOWuUGaBoOoaSQg1agICCVcm/vSn7yDo9B5nF7XF+CD1B414O4goPUBAJsgXQEBAQeNcDuN0HqAgICD4dK0b3AdpCD6BvuQeoPh0zRvcB2kIPprwdxB7EHqAgICDwOF7XF+CD1AQEBAQUK7on90+SDl2H9rH3v5kG89p+UCHDY2MA5yUsHqjq060EN+uqf8AcM8UHn11z/uGeKD5k5aagghsLAeKDX+L4vLWTOmmdmcf5fIILFAQEEw5MKZz8TiI3Nu4oOiUGs8UqpYcWknDnZIubD230yu0Jsgm20GKCCkfK06ltmfMncgjGwbnwCr557nFhDnXubXFygyzttmBnOGCYR/Hl0txQXeJbVQ0/NXDn88LsDRe+l0GLxPaRtTSVLWtfFJG25a4WIHFBk8OxtgbTw6vkdG0m2thbe5BQl2yjzubHDNKGGznMbcXCC2xvbAMoxUU7XOu7Lu3a6goMjhu0HP+qYJWercucLDcgtMNxulgon1EYeImPfe+pvfVAbtvFdpdFM2NxAEhb6uqC/xbaOOmcxmV8j3i4awXNuKClhu1UVRNzAY9kmUuLXC1ggzpQa5oYKerr6qKqe4yB/6sB5Ay/JBK9nMMlpWyRyOzMz3iubkN4FBmXnQ24INc4LRUtUZn1kp57nXDKXlthfSwQSDBsFFNUl8EuamLNWl+azuIQfb9tI8zubhmla0kF7W6ab0FxUbWU7KZtT6xjc4N0Gt+FkFuzbWK5a6KVhDS4BzbZgOCDKzYzEym9JJ/V5Qfmgx2HYjTvq5i0PbKImueXHTKd2iCidt4zdzYJnxgn12t9XRBe1W1EEcDJtXiTRjWi7ieFkFGj2tjklbE+KWFz/ZziwPyQKnaxjZHxxxSylhs4sFwDwQZDCMXZVMLmtc0tNnNcLEFBc13RP7p8kHLD5clQXcJCf6kHuKYi+pmdK83Lj/JBaWQMpQMpQMpQMpQMpQXNFhs07wyKNz3HgCg3vyd7Ffo6IyS9M8a/wDqOCCcIISyhE9fiEZGjomDzQY7C6p9bJT0b7/9M4mW/Xl9lBd01Q+I4o9gu5pFtPkgxtXIHYeZPTy57mXMeluyyDJtbebC7j/w/KgzO1tEwUlRIGgPcyxd12QYDZUmidzU+pnYDHKevT2CgtNn4y2OVrq30ciWS8Ztx36oK8tOxuFSGNzpG87mLnC1/W1I+SCSx7RwudHBGRI58ZN26gWHWgiVGL4JOP8A7Sf3oJFtUwfowWG4R/4QW0lQ2HE4HykNaaewcd19NLoENdFNjTTE4OtA4EjdvQS2tvzT8u/KbeCDX+CU1DLR5ZZGR1Ac4l5Nnh196Bs3tLI2ufFPNzkQAYyQA5XH5nig2K82BI4IIXQ1NBWB7qpkMcwe5rg7Q6Hegt8PjhZiJZRuvEYXZw0ktzdSCw2fjLYHh1dzBD33jNrjUoKtRTRtw6ERuc9pqmnM4Wv62/sQTypw2OWxc0EhpAPC4QQGnkdI9mGG/wCrmJd92NQgyEcf/csQa37O0D+aC62Zxmniw9jZHsDmBwcwnW9zpZBicdkbKygljvTR84fWt7PzQXL6eN9TT5611Q4Pu1rQD42QfbWRipqDDWGncX+u1wFibbxdBk9kMSkm59r3Nk5t9hI0WzIJBXdE/unyQcrTxF872tBJL3AAdqDbGyHJMzI2WtuSdRGOrtQT+LZKhYLCmjt2IPv6L0X2aL8IQPovRfZovwhA+i9F9mi/CED6L0X2aL8IQPovRfZovwhBeUuGQw9HGxnYAEF0gIKTKZjXF4aA5289ZQfENDGxzntY1rne04DU9qD6bRxguIaBn9rTf2oLJuztIDcQR37EF56HHdpyC7PZ03diCpLC17S1wDgd4KClJRRvDQ5jSG+zpu7EFvUYFTSOzPhY53EhBdCkjyc3kbktbLbTwQUKTB4ISTHExhO8gIPtmGwtYYxG0MJuW20vxQVZaZj25HNBbwO5BH9osJnlex8TI5WNFjFJu7QUFHAcAlZU+kSsjiysyNZH895KCVoMZPs5SSOLnwRucd5sguIsLhY0NbEwNBuAAN6C7sgxtTs/SyuLnwRucd5IQV6LC4YL81G1l9+UWQUZ8BppHZ3wsc49ZCC5dRRloYWNyt1AtoEFwgt20MYkMoY3ORYutqg9ZRxte6QNAe4Wc7rI4ILWTAKVzszoIy7jZBdTUUb2ZHMaWfCRogoUmDU8JzRxMYeIGqDypwWnmdmkiY53EjVBc0tHHC3LG0MbwAsg+a/on90+SDVHJhsoJJ5ayVtw17hGDxudUG30BAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEFvXdE/unyQYbYdoFDHYW1f8A3FBIUBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEH//2Q==" alt="Pulse Marketing &amp; Services" style="height:52px;width:auto;object-fit:contain;display:block;">
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-item active" data-page="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Dashboard
+        </div>
+        <div class="nav-item" data-page="today">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Today's Schedule
+        </div>
+
+        <div class="nav-item" data-page="customers">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Customers
+        </div>
+        <div class="nav-item" data-page="schedule">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Schedule
+        </div>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+      <header class="topbar">
+        <button class="btn btn-back" id="back-btn" onclick="goBack()" style="display:none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            Back
+          </button>
+          <div class="topbar-title" id="page-title">Dashboard</div>
+        <div class="topbar-right">
+          <div class="topbar-date" id="topbar-date"></div>
+          <button class="btn btn-primary" id="global-add-btn" onclick="openAddModal()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Customer
+          </button>
+        </div>
+      </header>
+
+      <div class="content">
+
+        <!-- DASHBOARD PAGE -->
+        <div class="page active" id="page-dashboard">
+          <div class="stats-grid" id="stats-grid"></div>
+          <div class="two-col-grid">
+            <div class="section-card">
+              <div class="section-header">
+                <div>
+                  <div class="section-title">Due Today</div>
+                  <div class="section-sub">Maintenance scheduled for today</div>
+                </div>
+              </div>
+              <div id="dash-today-list"></div>
+            </div>
+            <div class="section-card">
+              <div class="section-header">
+                <div class="section-title">Upcoming This Week</div>
+              </div>
+              <div id="dash-week-list"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TODAY PAGE -->
+        <div class="page" id="page-today">
+          <div class="today-highlight" id="today-highlight"></div>
+          <div class="section-card">
+            <div class="section-header">
+              <div class="section-title">Today's Maintenance List</div>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div id="today-count-badge"></div>
+                <div class="form-group-inline" style="margin:0;">
+                  <label style="font-size:12px;color:var(--text-hint);">Sort by</label>
+                  <select id="today-sort" onchange="renderToday()" style="font-size:12px;padding:4px 8px;">
+                    <option value="area">Area</option>
+                    <option value="status">Status / Overdue</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div id="today-list"></div>
+          </div>
+        </div>
+
+        <!-- AREA PLANNER PAGE -->
+        <div class="page" id="page-area-planner">
+          <div class="planner-toolbar">
+            <div class="planner-info-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Customers due within the same week are grouped by area so you can batch visits efficiently.
+            </div>
+            <div class="planner-controls">
+              <div class="form-group-inline">
+                <label>Window</label>
+                <select id="planner-window">
+                  <option value="3">Next 3 days</option>
+                  <option value="7" selected>This week (7 days)</option>
+                  <option value="14">Next 2 weeks</option>
+                </select>
+              </div>
+              <div class="form-group-inline">
+                <label>Min. customers to group</label>
+                <select id="planner-min">
+                  <option value="1">Any (show all)</option>
+                  <option value="2" selected>2+</option>
+                  <option value="3">3+</option>
+                </select>
+              </div>
+              <button class="btn btn-primary" onclick="renderAreaPlanner()">Apply</button>
+            </div>
+          </div>
+          <div id="area-planner-list"></div>
+        </div>
+
+        <!-- CUSTOMERS PAGE -->
+        <div class="page" id="page-customers">
+          <div class="search-row">
+            <div class="search-wrapper">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input class="search-input" type="text" placeholder="Search by name, area, phone…" id="search-input" oninput="renderCustomers()">
+            </div>
+            <div class="filter-row-inline">
+              <select id="filter-status" onchange="renderCustomers()">
+                <option value="">All Statuses</option>
+                <option value="overdue">Overdue</option>
+                <option value="due-today">Due Today</option>
+                <option value="due-soon">Due Soon</option>
+                <option value="scheduled">Scheduled</option>
+              </select>
+              <select id="filter-area" onchange="renderCustomers()">
+                <option value="">All Areas</option>
+              </select>
+            </div>
+          </div>
+          <div class="section-card">
+            <div id="customers-list"></div>
+          </div>
+        </div>
+
+        <!-- SCHEDULE PAGE -->
+        <div class="page" id="page-schedule">
+          <div class="section-card">
+            <div class="section-header">
+              <div>
+                <div class="section-title">Full Maintenance Schedule</div>
+                <div class="section-sub">All customers sorted by next due date</div>
+              </div>
+              <div class="form-group-inline" style="margin:0;">
+                <label style="font-size:12px;color:var(--text-hint);">Sort by</label>
+                <select id="schedule-sort" onchange="renderSchedule()" style="font-size:12px;padding:4px 8px;">
+                  <option value="date">Due Date</option>
+                  <option value="area">Area</option>
+                </select>
+              </div>
+            </div>
+            <div id="schedule-list"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- RESCHEDULE MODAL -->
+  <div class="modal-overlay" id="reschedule-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title">Reschedule Maintenance</div>
+        <button class="modal-close" onclick="closeModal('reschedule-modal')">&#x2715;</button>
+      </div>
+      <p class="modal-sub" id="reschedule-name-label"></p>
+      <div class="form-group">
+        <label>Select New Date</label>
+        <input type="date" id="reschedule-date">
+      </div>
+      <div class="form-group" style="margin-top:12px;">
+        <label>Reason (optional)</label>
+        <input type="text" id="reschedule-reason" placeholder="e.g. Customer not available">
+      </div>
+      <div class="modal-footer">
+        <button class="btn" onclick="closeModal('reschedule-modal')">Cancel</button>
+        <button class="btn btn-primary" onclick="confirmReschedule()">Confirm Reschedule</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BATCH RESCHEDULE MODAL (Area Planner) -->
+  <div class="modal-overlay" id="batch-reschedule-modal">
+    <div class="modal modal-wide">
+      <div class="modal-header">
+        <div class="modal-title">Batch Schedule – <span id="batch-area-name"></span></div>
+        <button class="modal-close" onclick="closeModal('batch-reschedule-modal')">&#x2715;</button>
+      </div>
+      <p class="modal-sub">Set a single visit date for all selected customers in this area.</p>
+      <div id="batch-customer-list"></div>
+      <div class="form-group" style="margin-top:14px;">
+        <label>Visit Date for Selected Customers</label>
+        <input type="date" id="batch-date">
+      </div>
+      <div class="modal-footer">
+        <button class="btn" onclick="closeModal('batch-reschedule-modal')">Cancel</button>
+        <button class="btn btn-primary" onclick="confirmBatchReschedule()">Schedule Selected</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD / EDIT CUSTOMER MODAL -->
+  <div class="modal-overlay" id="customer-modal">
+    <div class="modal modal-wide">
+      <div class="modal-header">
+        <div class="modal-title" id="cust-modal-title">Add New Customer</div>
+        <button class="modal-close" onclick="closeModal('customer-modal')">&#x2715;</button>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Customer Name <span class="required">*</span></label>
+          <input type="text" id="f-name" placeholder="e.g. Rajesh Sharma">
+        </div>
+        <div class="form-group">
+          <label>Phone / Contact</label>
+          <input type="text" id="f-phone" placeholder="e.g. 9876543210">
+        </div>
+        <div class="form-group form-full">
+          <label>Full Address <span class="required">*</span></label>
+          <input type="text" id="f-address" placeholder="e.g. 12 MG Road, Koregaon Park, Pune – 411001">
+        </div>
+        <div class="form-group">
+          <label>Area / Zone <span class="required">*</span></label>
+          <input type="text" id="f-area" placeholder="e.g. Koregaon Park">
+        </div>
+        <div class="form-group">
+          <label>Battery Type</label>
+          <select id="f-btype">
+            <option>Tall Tubular</option>
+            <option>Tubular Flat Plate</option>
+            <option>SMF / VRLA</option>
+            <option>Lithium-Ion</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Inverter Brand</label>
+          <input type="text" id="f-brand" placeholder="e.g. Luminous, Microtek">
+        </div>
+        <div class="form-group">
+          <label>Battery Capacity (AH)</label>
+          <input type="number" id="f-ah" placeholder="e.g. 150">
+        </div>
+        <div class="form-group">
+          <label>Installation Date <span class="required">*</span></label>
+          <input type="date" id="f-install">
+        </div>
+        <div class="form-group">
+          <label>Last Maintenance Date</label>
+          <input type="date" id="f-last">
+        </div>
+
+        <!-- AMC Section -->
+        <div class="form-group form-full form-section-label">🛡️ AMC Details</div>
+        <div class="form-group">
+          <label>AMC Date From</label>
+          <input type="date" id="f-amc-from">
+        </div>
+        <div class="form-group">
+          <label>AMC Date To</label>
+          <input type="date" id="f-amc-to">
+        </div>
+        <div class="form-group">
+          <label>AMC Amount (₹)</label>
+          <input type="number" id="f-amc-amount" placeholder="e.g. 2500">
+        </div>
+        <div class="form-group">
+          <label>Payment Date</label>
+          <input type="date" id="f-payment-date">
+        </div>
+
+        <div class="form-group form-full">
+          <label>Notes</label>
+          <textarea id="f-notes" rows="2" placeholder="Any special instructions or notes…"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" onclick="closeModal('customer-modal')">Cancel</button>
+        <button class="btn btn-primary" onclick="saveCustomer()" id="cust-save-btn">Add Customer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARK DONE MODAL -->
+  <div class="modal-overlay" id="done-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title">Mark Maintenance Done</div>
+        <button class="modal-close" onclick="closeModal('done-modal')">&#x2715;</button>
+      </div>
+      <p class="modal-sub" id="done-name-label"></p>
+      <div class="form-group">
+        <label>Maintenance Completed On</label>
+        <input type="date" id="done-date">
+      </div>
+      <div class="form-grid" style="margin-top:12px;">
+        <div class="form-group">
+          <label>Battery Voltage on Mains (V)</label>
+          <input type="text" id="done-volt-mains" placeholder="e.g. 13.2">
+        </div>
+        <div class="form-group">
+          <label>Battery Voltage on Load (V)</label>
+          <input type="text" id="done-volt-load" placeholder="e.g. 12.1">
+        </div>
+      </div>
+      <div class="form-group" style="margin-top:12px;">
+        <label>Remarks (optional)</label>
+        <textarea id="done-notes" rows="2" placeholder="e.g. Topped up distilled water, checked terminals…"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" onclick="closeModal('done-modal')">Cancel</button>
+        <button class="btn btn-primary" onclick="confirmDone()">Mark as Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CUSTOMER DETAIL MODAL -->
+  <div class="modal-overlay" id="detail-modal">
+    <div class="modal modal-detail">
+      <div class="modal-header">
+        <div class="modal-title">Customer Details</div>
+        <button class="modal-close" onclick="closeModal('detail-modal')">&#x2715;</button>
+      </div>
+      <div class="detail-action-bar">
+        <button class="btn btn-sm" onclick="editFromDetail()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Edit Details
+        </button>
+        <button class="btn btn-success btn-sm" onclick="addMaintenanceFromDetail()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Maintenance Record
+        </button>
+      </div>
+      <div id="detail-content"></div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- SCRIPTS (load order matters) -->
+  <script src="src/data/customers.js"></script>
+  <script src="src/utils/helpers.js"></script>
+  <script src="src/components/stats.js"></script>
+  <script src="src/components/today.js"></script>
+  <script src="src/components/areaPlanner.js"></script>
+  <script src="src/components/customers.js"></script>
+  <script src="src/components/schedule.js"></script>
+  <script src="src/components/modals.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>

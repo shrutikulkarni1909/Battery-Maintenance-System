@@ -1,0 +1,248 @@
+/* =============================================
+   PowerTrack Pro – Component Styles
+   ============================================= */
+
+/* ---- AREA PLANNER ---- */
+.planner-toolbar {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.planner-info-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.planner-info-box svg {
+  width: 16px;
+  height: 16px;
+  color: var(--blue-600);
+  flex-shrink: 0;
+}
+
+.planner-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.form-group-inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.form-group-inline select {
+  padding: 6px 10px;
+  font-size: 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font);
+  cursor: pointer;
+}
+
+/* ---- AREA GROUP CARD ---- */
+.area-group {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.area-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+  gap: 12px;
+}
+
+.area-group-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.area-pin {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--blue-50);
+  border: 1px solid var(--blue-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.area-pin svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--blue-600);
+}
+
+.area-group-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.area-group-meta {
+  font-size: 11px;
+  color: var(--text-hint);
+  margin-top: 2px;
+}
+
+.area-group-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.area-group-body {
+  padding: 0;
+}
+
+.area-group-body table { margin: 0; }
+.area-group-body tr:last-child td { border-bottom: none; }
+
+/* ---- EFFICIENCY PILL ---- */
+.efficiency-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--teal-50);
+  color: var(--teal-800);
+  border: 1px solid var(--teal-100);
+}
+
+.efficiency-pill.medium {
+  background: var(--amber-50);
+  color: var(--amber-800);
+  border-color: var(--amber-100);
+}
+
+/* ---- MAINTENANCE HISTORY ---- */
+.history-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.history-entry:last-child { border-bottom: none; }
+
+.history-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green-600);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.history-dot.reschedule { background: var(--blue-600); }
+
+/* ---- CUSTOMER DETAIL MINI ---- */
+.detail-row {
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.detail-row:last-child { border-bottom: none; }
+.detail-label { color: var(--text-hint); width: 130px; flex-shrink: 0; }
+.detail-value { color: var(--text-primary); font-weight: 500; }
+
+/* ---- CHECKBOX FOR BATCH ---- */
+.batch-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  border-radius: var(--radius-sm);
+  transition: background 0.1s;
+}
+
+.batch-row:hover { background: var(--bg-secondary); }
+.batch-row:last-child { border-bottom: none; }
+
+.batch-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--blue-600);
+}
+
+.batch-customer-info { flex: 1; }
+.batch-customer-name { font-weight: 500; }
+.batch-customer-due { font-size: 11px; color: var(--text-hint); margin-top: 2px; }
+
+/* ---- DAY RANGE LABEL ---- */
+.day-range-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-hint);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+}
+
+/* ---- NO GROUPS STATE ---- */
+.no-groups-state {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px 20px;
+  text-align: center;
+}
+
+.no-groups-state .icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.no-groups-state .title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.no-groups-state .desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  max-width: 360px;
+  margin: 0 auto;
+}
