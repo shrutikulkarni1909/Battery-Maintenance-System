@@ -56,8 +56,8 @@ function initials(name) {
   return name.trim().split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
 }
 
-function avColor(id) { return 'av-' + (id % 6); }
-function normaliseArea(area) { return (area || '').trim().toLowerCase(); }
+function avColor(id)        { return 'av-' + (id % 6); }
+function normaliseArea(area){ return (area || '').trim().toLowerCase(); }
 
 function groupByArea(list) {
   const map = {};
@@ -80,19 +80,38 @@ function showToast(msg, type = 'success') {
   window._toastTimer = setTimeout(() => { t.style.display = 'none'; }, 3200);
 }
 
+// ---- SAVE INDICATOR ----
+
+function setSaveStatus(state) {
+  // state: 'saving' | 'saved' | 'error'
+  const el = document.getElementById('save-status');
+  if (!el) return;
+  if (state === 'saving') {
+    el.textContent = '⏳ Saving…';
+    el.style.color = 'var(--text-hint)';
+  } else if (state === 'saved') {
+    el.textContent = '✓ Saved';
+    el.style.color = 'var(--green-600)';
+    clearTimeout(window._saveStatusTimer);
+    window._saveStatusTimer = setTimeout(() => { el.textContent = ''; }, 2500);
+  } else if (state === 'error') {
+    el.textContent = '⚠ Save failed';
+    el.style.color = 'var(--red-600)';
+  }
+}
+
 // ---- MODAL ----
 
 function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 function openModal(id)  { document.getElementById(id).classList.add('open'); }
 
 // ---- SERVER PERSISTENCE ----
-// Saves to MongoDB Atlas via the Node.js server.
-// Every user on any device shares the same data.
 
 let _saveTimer = null;
 
 function saveData() {
   clearTimeout(_saveTimer);
+  setSaveStatus('saving');
   _saveTimer = setTimeout(() => {
     const payload = {
       customers:      window.customers,
@@ -102,7 +121,14 @@ function saveData() {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify(payload),
-    }).catch(() => {
+    })
+    .then(r => {
+      if (!r.ok) throw new Error('Server returned ' + r.status);
+      setSaveStatus('saved');
+    })
+    .catch(err => {
+      console.error('Save error:', err);
+      setSaveStatus('error');
       showToast('⚠️ Could not save — check your connection.', 'error');
     });
   }, 400);
@@ -111,18 +137,19 @@ function saveData() {
 function loadData(callback) {
   fetch('/api/data')
     .then(r => {
-      if (!r.ok) throw new Error('empty');
+      if (!r.ok) throw new Error('no data');
       return r.json();
     })
     .then(data => {
       if (data && Array.isArray(data.customers)) {
         window.customers      = data.customers;
         window.nextCustomerId = data.nextCustomerId || (data.customers.length + 1);
+        console.log('Loaded', window.customers.length, 'customers from server.');
       }
       if (callback) callback();
     })
-    .catch(() => {
-      // First launch — no data in DB yet, use defaults from customers.js
+    .catch(err => {
+      console.log('No server data yet, using defaults.', err.message);
       if (callback) callback();
     });
 }
