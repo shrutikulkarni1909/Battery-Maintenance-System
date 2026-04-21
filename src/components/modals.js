@@ -75,9 +75,12 @@ function confirmDone() {
   c.last        = date;
   c.reschedules = [];
 
+  const wasFromDetail = (doneTarget === currentDetailId);
   closeModal('done-modal');
   renderAll();
   showToast(`Maintenance for ${c.name} marked as done! Next due: ${fmtDate(nextMaint(date))}.`);
+  // If opened from detail modal, reopen it with fresh data
+  if (wasFromDetail) openDetailModal(c.id);
 }
 
 // ---- ADD CUSTOMER MODAL ----
@@ -164,11 +167,14 @@ function saveCustomer() {
   };
 
   if (editingId !== null) {
+    const wasFromDetail = (editingId === currentDetailId);
     const idx = customers.findIndex(x => x.id === editingId);
     customers[idx] = { ...customers[idx], ...data };
     closeModal('customer-modal');
     renderAll();
     showToast(`${name}'s details have been updated.`);
+    // Reopen detail modal with fresh data if edit was triggered from there
+    if (wasFromDetail) openDetailModal(editingId);
   } else {
     const newCust = {
       id: window.nextCustomerId++,

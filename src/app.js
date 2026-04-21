@@ -9,7 +9,8 @@ const PAGE_TITLES = {
   schedule:  'Schedule',
 };
 
-let _navHistory = ['dashboard'];
+let _navHistory    = ['dashboard'];
+let _currentPage   = 'dashboard';
 
 // ---- NAVIGATION ----
 
@@ -24,6 +25,11 @@ function navigate(page, filterHint) {
 
   document.getElementById('page-title').textContent = PAGE_TITLES[page] || page;
 
+  _currentPage = page;
+
+  // Persist current page so refresh lands on the same page
+  try { localStorage.setItem('pt_current_page', page); } catch(e) {}
+
   // Track history for back button
   const last = _navHistory[_navHistory.length - 1];
   if (last !== page) _navHistory.push(page);
@@ -32,6 +38,7 @@ function navigate(page, filterHint) {
   const backBtn = document.getElementById('back-btn');
   if (backBtn) backBtn.style.display = (page !== 'dashboard') ? 'inline-flex' : 'none';
 
+  // Apply filter if navigating to customers with a hint
   if (filterHint !== undefined && page === 'customers') {
     const sel = document.getElementById('filter-status');
     if (sel) { sel.value = filterHint; renderCustomers(); }
@@ -39,10 +46,21 @@ function navigate(page, filterHint) {
 }
 
 function goBack() {
-  // Pop current page
   if (_navHistory.length > 1) _navHistory.pop();
   const prev = _navHistory[_navHistory.length - 1] || 'dashboard';
-  navigate(prev);
+  // Don't push to history again when going back
+  _currentPage = prev;
+  try { localStorage.setItem('pt_current_page', prev); } catch(e) {}
+
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + prev);
+  if (target) target.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.classList.toggle('active', item.dataset.page === prev);
+  });
+  document.getElementById('page-title').textContent = PAGE_TITLES[prev] || prev;
+  const backBtn = document.getElementById('back-btn');
+  if (backBtn) backBtn.style.display = (prev !== 'dashboard') ? 'inline-flex' : 'none';
 }
 
 // ---- BIND NAV ----
@@ -65,9 +83,19 @@ function setTopbarDate() {
 (function init() {
   setTopbarDate();
   document.getElementById('page-title').textContent = 'Loading…';
+
   loadData(function() {
     document.getElementById('page-title').textContent = PAGE_TITLES['dashboard'];
     renderAll();
-    console.log('Pulse Marketing & Services BMS initialized. Customers:', customers.length);
+
+    // Restore last visited page after data is loaded
+    try {
+      const saved = localStorage.getItem('pt_current_page');
+      if (saved && PAGE_TITLES[saved]) {
+        navigate(saved);
+      }
+    } catch(e) {}
+
+    console.log('Pulse BMS initialized. Customers:', customers.length);
   });
 })();
